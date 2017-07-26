@@ -1,28 +1,23 @@
 #!/usr/bin/php
 <?php
-
-function loupe($str)
+function callback($matches)
 {
-	$pattern = '/.*(href=http).*title="(.*)".*/i';
-	preg_match($pattern, $str, $matches);
-	if (empty($matches[0])) {
-		echo ("Wrong Format\n");
-		exit ;
-	}
-	echo ("$matches[1]\n");
-	echo ("$matches[2]\n");
-	echo ("$matches[3]\n");
-	echo ("$matches[4]\n");
-	echo ("$matches[5]\n");
-	echo ("$matches[6]\n");
-	echo ("$matches[7]\n");
+    $matches[0] = preg_replace_callback('/".*"/',
+    function ($m)
+    {
+        return strtoupper($m[0]);
+    }, $matches[0]);
+    $matches[0] = preg_replace_callback('/>(.+?)</',
+    function ($m)
+    {
+        return strtoupper($m[0]);
+    }, $matches[0]);
+    return $matches[0];
 }
-$str = trim($argv[1]);
-loupe($str);
+if ($argc != 2)
+    return (1);
+file_exists($argv[1]) or die("$argv[1] not found\n");   
+$file = file_get_contents($argv[1]) or die("Failed to open file\n");
+$file = preg_replace_callback('/<a.*<\/a>/', "callback", $file);
+echo $file;
 ?>
-
-
-# .*<a.*title="(.*)".*<\/a>.*
-
-
-# <a[^>]*>([^<]*)<.*\/a>

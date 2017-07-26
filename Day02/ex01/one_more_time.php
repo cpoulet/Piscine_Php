@@ -24,11 +24,12 @@ function one_more_time($str)
 	$array = range (1,12);
 	$matches[3] =  preg_replace($months, $array, $matches[3]);
 	$date = "$matches[3]/$matches[2]/$matches[4] $matches[5]";
-	echo ("$date\n");
 	date_default_timezone_set('Europe/Berlin');
 	$count = strtotime($date);
 	echo ("$count\n");
 }
+if ($argc < 2)
+    return (1);
 $str = trim($argv[1]);
 one_more_time($str);
 ?>
