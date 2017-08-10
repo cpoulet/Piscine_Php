@@ -2,33 +2,33 @@
 
 Class Color {
 
-	private $_red = 0;
-	private $_green = 0;
-	private $_blue = 0;
+	public $red = 0;
+	public $green = 0;
+	public $blue = 0;
 	public static $verbose = False;
 
 	function __construct( array $kwargs ) {
 
 		if ( array_key_exists( 'rgb', $kwargs ) ) {
-			$this->_red = ( $kwargs['rgb'] >> 16 ) & 0xff;
-			$this->_green = ( $kwargs['rgb'] >> 8 ) & 0xff;
-			$this->_blue = $kwargs['rgb'] & 0xff ;
+			$this->red = ( $kwargs['rgb'] >> 16 ) & 0xff;
+			$this->green = ( $kwargs['rgb'] >> 8 ) & 0xff;
+			$this->blue = $kwargs['rgb'] & 0xff ;
 		}
 		else {
 			if ( array_key_exists( 'red', $kwargs ) )
-				$this->_red = (int) $kwargs['red'];
+				$this->red = (int) $kwargs['red'];
 			else
-				$this->_red = 0;
+				$this->red = 0;
 
 			if ( array_key_exists( 'green', $kwargs ) )
-				$this->_green = (int) $kwargs['green'];
+				$this->green = (int) $kwargs['green'];
 			else
-				$this->_green = 0;
+				$this->green = 0;
 
 			if ( array_key_exists( 'blue', $kwargs ) )
-				$this->_blue = (int) $kwargs['blue'];
+				$this->blue = (int) $kwargs['blue'];
 			else
-				$this->_blue = 0;
+				$this->blue = 0;
 		}
 		if (self::$verbose)
 			print( $this . ' constructed.' . PHP_EOL );
@@ -42,7 +42,7 @@ Class Color {
 	}
 
 	function __toString() {
-		return sprintf( "Color( red: %3d, green: %3d, blue: %3d )", $this->_red, $this->_green, $this->_blue);
+		return sprintf( "Color( red: %3d, green: %3d, blue: %3d )", $this->red, $this->green, $this->blue);
 	}
 
 	static function doc() {
@@ -50,15 +50,15 @@ Class Color {
 	}
 
 	function add( Color $instance) {
-	 	return new Color( array( 'red' => $this->_red + $instance->_red, 'green' => $this->_green + $instance->_green, 'blue' => $this->_blue + $instance->_blue ) );
+	 	return new Color( array( 'red' => $this->red + $instance->red, 'green' => $this->green + $instance->green, 'blue' => $this->blue + $instance->blue ) );
 	}
 
 	function sub( Color $instance) {
-	 	return new Color( array( 'red' => $this->_red - $instance->_red, 'green' => $this->_green - $instance->_green, 'blue' => $this->_blue - $instance->_blue ) );
+	 	return new Color( array( 'red' => $this->red - $instance->red, 'green' => $this->green - $instance->green, 'blue' => $this->blue - $instance->blue ) );
 	}
 
 	function mult( $fact) {
-	 	return new Color( array( 'red' => $this->_red * $fact, 'green' => $this->_green * $fact, 'blue' => $this->_blue * $fact ) );
+	 	return new Color( array( 'red' => $this->red * $fact, 'green' => $this->green * $fact, 'blue' => $this->blue * $fact ) );
 	}
 
 }
