@@ -47,7 +47,7 @@ Class Vertex {
 	}
 
 	function __toString() {
-		$string = sprintf( "Vertex( x:%.2f, y:%.2f, z:%.2f, w:%.2f", $this->_x, $this->_y, $this->_z, $this->_w );
+		$string = sprintf( "Vertex( x: %.2f, y: %.2f, z:%.2f, w:%.2f", $this->_x, $this->_y, $this->_z, $this->_w );
 		if (self::$verbose)
 			$string .= ', '.sprintf($this->_color).' )';
 		else

@@ -73,7 +73,7 @@ Class Vector {
 	}
 
 	function cos(Vector $rhs) {
-		return $this->dotProduct($rhs) / $this->magnitude() * $rhs->magnitude();
+		return $this->dotProduct($rhs) / ($this->magnitude() * $rhs->magnitude());
 	}
 
 	function crossProduct(Vector $rhs) {
