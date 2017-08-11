@@ -1,0 +1,30 @@
+<- Matrix ----------------------------------------------------------------------
+The Matrix class handles 4x4 matrix.
+
+An instance can be constructed from different Class Constante given by the obligatory keyword 'preset' and with other parameter depending of the first one:
+    IDENTITY (no param):
+        new Matrix( array( 'preset' => Matrix::IDENTITY) );
+    TRANSLATION (vtc : Class Vector):
+        new Matrix( array( 'preset' => Matrix::TRANSLATION, 'vtc' => $vtc) );
+    SCALE (scale : Float or Int):
+        new Matrix( array( 'preset' => Matrix::SCALE, 'scale' => 10.0) );
+    RX (angle : Float or Int in radians):
+        new Matrix( array( 'preset' => Matrix::RX, 'angle' => M_PI_2) );
+    RY (angle : Float or Int in radians):
+        new Matrix( array( 'preset' => Matrix::RY, 'angle' => M_PI_2) );
+    RZ (angle : Float or Int in radians):
+        new Matrix( array( 'preset' => Matrix::RZ, 'angle' => M_PI_2) );
+    PROJECTION (fov, ratio, near,fat : Float or Int):
+        new Matrix( array( 'preset' => Matrix::PROJECTION, 'fov' => 60, 'ratio' => 640/480, 'near' => 1.0, 'far' => -50.0) );
+
+After instanciation, the Matrix can't be modify.
+The matrix is representating as a double array and t can be return by using getMatrix().
+
+The class provide the following methods: 
+
+Vertex transformVertex(Vertex $vtx)
+Which multiply the Matrix with the provided vertex
+
+Matrix mult(Matrix $rhs)
+Which return the multiplication of the two Matrices
+---------------------------------------------------------------------- Matrix ->
