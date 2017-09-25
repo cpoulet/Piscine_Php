@@ -42,7 +42,4 @@ class User extends Model {
     }
 }
 
-$U = new User;
-var_dump($U->login('root', 'root'));
-
 ?>
