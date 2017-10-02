@@ -1,0 +1,178 @@
+body {
+	background-color: #505050; 
+}
+
+.wrapper {
+	width: 1900px;
+	height: 1200px; 
+	margin: 0px auto;
+	margin-top: 20px;
+}
+
+.header {
+	width: 100%;
+	height: 15%;
+	border-top : 10px solid #909090; 
+	margin: 0px auto;
+	border-radius: 25px;
+	background-image: url("resources/day_of_the_42.png");	
+	background-repeat: no-repeat;
+	background-size: 30%;
+	background-color: #909090; 
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,75)
+}
+
+.logo {
+	display: inline-block;
+	width: 500px;
+	height: 300px;
+	border : 5px solid green;
+	margin: 20px auto;
+}
+
+
+.content {
+	display: inline-block;
+	width: 1900px;
+	height: 900px;
+	margin: 0px auto;
+}
+
+.left {
+	float: left;
+	width: 10%;
+	height: 65%;
+	margin-top: 1%;
+	margin-left: 1%;
+	margin-right: 2%;
+	padding-top: 1%;
+	background-color: #909090; 
+	border-radius: 25px;
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,75)
+}
+
+.left img {
+	display: list-item;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10%;
+}
+
+.hero {
+	float: left;
+	display: inline-block;
+	width: 72%;
+	height: 85.5%;
+	border : 10px solid #909090;
+	border-radius: 10px;
+	margin-top: 1%;
+	background-color: #909090;
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,75);
+}
+
+.right {
+	float: right;
+	display: inline-block;
+	width: 10%;
+	height: 61%;
+	margin-top: 1%;
+	margin-left: 1%;
+	margin-right: 2%;
+	padding-top: 1%;
+	background-color: #909090; 
+	border-radius: 25px;
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,75)
+}
+
+.right img {
+	display: list-item;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10%;
+}
+
+
+.input-box {
+	position: relative;
+	width: 700px;
+	height: 230px;
+	top: -17%;
+	left: -4%;	
+	background-color: #8CFD8E; 
+	border-radius: 20px;
+	padding: 12px;
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,75)
+	
+}
+
+
+.input-text {
+	font-size: 21px;
+	font-family: verdana;  
+	margin:0;
+}
+
+#bonjour {
+	font-size: 21px;
+	font-family: verdana;  
+	font-style: italic;
+	margin:0;
+	margin-bottom: 5px;
+}
+
+#entrez {
+	font-size: 46px;
+	font-family: georgia;
+}
+
+
+#ordinateur {
+	text-shadow: 5px 5px 5px rgba(193, 139, 81, 1);
+
+}
+
+.label {
+	border-top: 2px solid #9a9b9c;
+	width: 73%;
+	height: 10%;
+}
+
+.input-button {
+	border: 1px solid #B4A6B0;
+	width: 15%;
+	height: 12%;
+	margin-left:1%;
+	font-size: 17px;
+	border-radius: 3px;
+	background-color: #E7E7E7;
+	background: linear-gradient(to bottom, #f9faf8 0%,#e0e0e0 100%);
+	box-shadow: 0px 0px 1px 0px rgba(144,144,144,5);
+	color: #262626;
+}
+
+.loupe {
+	float: right;
+	transform: scale(1.3);
+	padding-top: 2%;
+}
+
+.icons {
+	float:right;
+	margin-right: 1%;
+	margin-top: 1%;
+}
+
+.brick {
+	width: 71%;
+	height: 16%;
+	background-image: url("resources/brick.jpg");
+	transform: scale(1.2);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10%;
+}
+
+#eye {
+	border: 6px solid red ;
+	border-radius: 6px;
+}

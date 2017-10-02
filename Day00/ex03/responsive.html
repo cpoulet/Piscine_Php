@@ -6,7 +6,7 @@
 <!-- By: cpoulet <marvin@42.fr>                     +#+  +:+       +#+       -->
 <!--                                              +#+#+#+#+#+   +#+          -->
 <!-- Created: 2017/10/02 14:00:54 by cpoulet           #+#    #+#            -->
-<!-- Updated: 2017/10/02 14:00:56 by cpoulet          ###   ########.fr      -->
+<!-- Updated: 2017/10/02 15:12:59 by cpoulet          ###   ########.fr      -->
 <!--                                                                         -->
 <!-- *********************************************************************** -->
 
@@ -15,49 +15,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Mendeleiev</title>
-  <style>
-    body    {background-image:url("http://1.bp.blogspot.com/_ADgpLyICxqw/TLtaLaq29LI/AAAAAAAAAAM/eYK9S8iYJGY/s1600/20070924klpcnafyq_71.Ies.SCO.jpg");
-            background-repeat:no-repeat;
-            background-position:center top}
-    table   {border-spacing:2px;}
-    td      {border:1px solid black; padding:1px; width:100px}
-    .nope   {border:1px; padding:5px; width:200px}
-    .violet {background-color:slateblue}
-    .yellow {background-color:gold}
-    .lemon  {background-color:darkkhaki}
-    .orange {background-color:coral}
-    .red    {background-color:crimson}
-    .pink   {background-color:hotpink}
-    .green  {background-color:palegreen}
-    .gray   {background-color:lightslategray}
-    .blue   {background-color:lightskyblue}
-    .poids  {text-align:right}
-    .symbol {text-align:center}
-    .num    {text-align:left}
-  </style>  
+  <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
+	<div class="wrapper">
 	<table contenteditable="true">		<tr>		<td class="violet">
 					<p class="poids">1.008</p>
 					<h2 class="symbol">H</h2>
 					<p class="num">1</p>
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="blue">
+		</td>		
+					<td colspan="16" class="nope"></td>
+					<td class="blue">
 					<p class="poids">4.003</p>
 					<h2 class="symbol">He</h2>
 					<p class="num">2</p>
@@ -69,17 +37,9 @@
 					<p class="poids">9.012</p>
 					<h2 class="symbol">Be</h2>
 					<p class="num">4</p>
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="green">
+		</td>
+					<td colspan="10" class="nope"></td>
+					<td class="green">
 					<p class="poids">10.811</p>
 					<h2 class="symbol">B</h2>
 					<p class="num">5</p>
@@ -111,17 +71,9 @@
 					<p class="poids">24.305</p>
 					<h2 class="symbol">Mg</h2>
 					<p class="num">12</p>
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="nope">
-		</td>		<td class="lemon">
+		</td>
+					<td colspan="10" class="nope"></td>
+					<td class="lemon">
 					<p class="poids">26.982</p>
 					<h2 class="symbol">Al</h2>
 					<p class="num">13</p>
@@ -297,8 +249,9 @@
 					<p class="poids">137.327</p>
 					<h2 class="symbol">Ba</h2>
 					<p class="num">56</p>
-		</td>		<td class="nope">
-		</td>		<td class="yellow">
+		</td>
+					<td colspan="1" class="nope"></td>
+					<td class="yellow">
 					<p class="poids">178.49</p>
 					<h2 class="symbol">Hf</h2>
 					<p class="num">72</p>
@@ -366,8 +319,9 @@
 					<p class="poids">226.0</p>
 					<h2 class="symbol">Ra</h2>
 					<p class="num">88</p>
-		</td>		<td class="nope">
-		</td>		<td class="yellow">
+		</td>
+					<td colspan="1" class="nope"></td>
+					<td class="yellow">
 					<p class="poids">267.0</p>
 					<h2 class="symbol">Rf</h2>
 					<p class="num">104</p>
@@ -427,6 +381,8 @@
 					<p class="poids">294.0</p>
 					<h2 class="symbol">Uuo</h2>
 					<p class="num">118</p>
-		</td>		</tr>	</table>
+		</td>		</tr>
+	</table>
+	</div>
 </body>
 </html>
