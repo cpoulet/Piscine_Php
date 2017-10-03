@@ -3,7 +3,7 @@
 if ($argc <= 2)
     return (1);
 $key = $argv[1];
-foreach(array_slice($argv, 2) as $c)
+foreach(array_reverse(array_slice($argv, 2)) as $c)
 {
     $arr = explode(":",$c);
     if ($arr[0] == $key)

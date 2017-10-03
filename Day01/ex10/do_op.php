@@ -1,7 +1,6 @@
 #!/usr/bin/php
 <?PHP
-if ($argc != 4)
-    echo "Incorrect Parameters\n";
+$argc == 4 or die ("Incorrect Parameters\n");
 switch (trim($argv[2]))
 {
     case "+":
