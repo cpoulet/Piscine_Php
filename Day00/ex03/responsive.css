@@ -1,0 +1,22 @@
+table	{border-spacing: 2%;}
+td		{border:1px solid black; padding:1px; width:5vw}
+
+.wrapper {background-image:url("http://1.bp.blogspot.com/_ADgpLyICxqw/TLtaLaq29LI/AAAAAAAAAAM/eYK9S8iYJGY/s1600/20070924klpcnafyq_71.Ies.SCO.jpg");
+	    background-size: 10vw;
+	    background-repeat:no-repeat;
+		background-position:center top;
+		height: 700px}
+
+.poids	{font-size:0.5vw;  text-align: right;}
+.num	{font-size:0.5vw; text-align: left;}
+.symbol {font-size:1vw; text-align: center;}
+.nope	{border:0}
+.violet {background-color:slateblue}
+.yellow {background-color:gold}
+.lemon  {background-color:darkkhaki}
+.orange {background-color:coral}
+.red    {background-color:crimson}
+.pink   {background-color:hotpink}
+.green  {background-color:palegreen}
+.gray   {background-color:lightslategray}
+.blue   {background-color:lightskyblue}
