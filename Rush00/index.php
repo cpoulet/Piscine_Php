@@ -3,19 +3,23 @@ session_start();
 include('Template/header.php');
 include('Template/nav.php');
 ?>
-<ul>
+<div class="txt-heading">Cart</div>
+<div id="product-grid">
+    <div class="txt-heading">Projects</div>
 <?php require_once 'Model/Project.php';
     $P = new Project;
     $projects = $P->getAll();
-    $image = "Image/Corewar.gif";
     foreach ($projects as $p) { ?>
-        <li>
-            <h3><?php echo $p[name] ?></h3>
-            <img src="<?php echo $p[image] ?>" style="width: auto; height: auto;max-width: 360px;max-height: 300px">
-            <p><?php echo $p[price] ?></p>
-            <p><?php echo $p[description] ?></p>
-        </li>
-    <?php }
+        <div class="product-item">
+			<form method="post" action="index.php?action=add&code=<?php echo $p["id"]; ?>">
+            <div><strong><?php echo $p["name"] ?></strong></div>
+            <div class="product-image"><img src="<?php echo $p["image"] ?>"></div>
+            <div class="product-price"><?php echo $p["price"] . "$" ?></div>
+            <div class="product-description"><?php echo $p["description"] ?></div>
+			<div><input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="AddCart" /></div>
+			</form>
+		</div> 
+<?php }
 ?>
-</ul>
+</div>
 <?php include('Template/footer.php'); ?>
