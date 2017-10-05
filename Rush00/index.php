@@ -1,11 +1,13 @@
 <?php 
 session_start();
+isset($_SESSION['loggued']) or $_SESSION['loggued'] = "";
 include('Template/header.php');
 include('Template/nav.php');
 ?>
 <div class="txt-heading">Cart</div>
 <div id="product-grid">
-    <div class="txt-heading">Projects</div>
+	<div class="txt-heading">Projects</div>
+<div>Sorting & Categories :</div>
 <?php require_once 'Model/Project.php';
     $P = new Project;
     $projects = $P->getAll();

@@ -4,17 +4,9 @@ require_once 'Model/Model.php';
 
 class User extends Model {
 
-#    function __construct($data) {
-#        foreach($data as $key => $value) {
-#            $this->$key = $value;
-#        }
-#    }
-
-    function add($login, $mdp) {
-        if ($this->exist($login)) {
-            print("Error: This login already exists.");
+    function create($login, $mdp) {
+        if ($this->exist($login))
             return False;
-        }
         $db =static::getDB();
         $req_pre = mysqli_prepare($db, 'INSERT INTO users (login, mdp) VALUES (?, ?)');
         $hash = password_hash($mdp, PASSWORD_DEFAULT);
