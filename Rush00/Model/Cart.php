@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'Model/Project.php';
+require_once 'Model/Cmds.php';
 
 function addCart($id, $qty) {
 	if (isset($_SESSION['cart'][$id])) {
@@ -34,4 +35,9 @@ function deleteCart() {
 	$_SESSION['cart'] = [];
 	$_SESSION['total'] = 0;
 }
+
+function validateCart() {
+	return saveCmd();
+}
+
 ?>

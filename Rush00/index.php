@@ -4,9 +4,10 @@ isset($_SESSION['logged']) or $_SESSION['logged'] = "";
 isset($_SESSION['admin']) or $_SESSION['admin'] = false;
 isset($_SESSION['cart']) or $_SESSION['cart'] = [];
 isset($_SESSION['total']) or $_SESSION['total'] = 0;
+isset($_SESSION['ctg']) or $_SESSION['ctg'] = ['base'=>true, 'algo'=>true, 'shell'=>true, 'graph'=>true, 'web'=>true];
 include('Template/header.php');
 include('Template/nav.php');
-include_once('Cart.php'); ?>
+include_once('Model/Cart.php'); ?>
 <div class="txt-heading">My 42 Market</div>
 <?php
 if ($_GET['action'] === "add" and $_POST['qty'] > 0)
@@ -18,6 +19,13 @@ if (isset($_POST['validate'])) {
 		echo "<strong>The cart is empty...</strong>";
 	elseif ($_SESSION['logged'] === "")
 		echo "<strong>You must be logged in before validate your cart...</strong>";
+	else {
+		if (validateCart()) {
+			echo "<strong class=\"valid\">Command registered ! Thx !</strong>";
+			deleteCart();
+		} else
+			echo "<strong>Sry, an error append during the validation, pls try again.</strong>";
+	}
 }
 ?>
 <div class="txt-heading">Cart</div>
@@ -43,10 +51,26 @@ if (isset($_POST['validate'])) {
 ?>
 <div id="product-grid">
 	<div class="txt-heading">Projects</div>
-<div>Sorting & Categories :</div>
+<div>Categories :</div>
+<?php
+if (isset($_POST['ctg'])) {
+	foreach($_SESSION['ctg'] as $key=>&$value) {
+		$value = array_key_exists($key, $_POST['ctg']) ? true : false;
+	}
+}
+?>
+<form action="index.php" method="post">
+<input type="checkbox" name="ctg[base]" value="true" onchange="this.form.submit()" <?php if ($_SESSION['ctg']['base']) echo "checked"; ?>>Basic | 
+	<input type="checkbox" name="ctg[algo]" value="true" onchange="this.form.submit()" <?php if ($_SESSION['ctg']['algo']) echo "checked"; ?>>Algorithms | 
+	<input type="checkbox" name="ctg[shell]" value="true" onchange="this.form.submit()" <?php if ($_SESSION['ctg']['shell']) echo "checked"; ?>>Shell | 
+	<input type="checkbox" name="ctg[graph]" value="true" onchange="this.form.submit()" <?php if ($_SESSION['ctg']['graph']) echo "checked"; ?>>Graphism | 
+	<input type="checkbox" name="ctg[web]" value="true" onchange="this.form.submit()" <?php if ($_SESSION['ctg']['web']) echo "checked"; ?>>Web 
+</form>
+<div>Sort By :</div>
 <?php require_once 'Model/Project.php';
     $P = new Project;
-    $projects = $P->getAll();
+    #$projects = $P->getCats($_SESSION['ctg']);
+    $projects = $P->getCat('2');
     foreach ($projects as $p) { ?>
         <div class="product-item">
 			<form method="post" action="index.php?action=add&id=<?php echo $p["id"]; ?>">

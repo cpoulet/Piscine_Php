@@ -3,6 +3,16 @@ body{font-family:calibri;}
 strong {
 	color:red;
 }
+
+.valid{
+	color:green;
+}
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
 .txt-heading{    
 	padding: 10px 10px;
     border-radius: 2px;

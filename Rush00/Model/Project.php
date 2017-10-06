@@ -37,5 +37,20 @@ class Project extends Model {
 		return $out;
     }
 
+	public static function getCats($ctg) {
+		$code = array();
+		$ctg['base'] === false or $code[] = '1';
+		$ctg['algo'] === false or $code[] = '2';
+		$ctg['shell'] === false or $code[] = '3';
+		$ctg['graph'] === false or $code[] = '4';
+		$ctg['web'] === false or $code[] = '5';
+		$out = array();
+		foreach ($code as $categorie) {
+			$data = static::getCat($categorie);
+			if ($data !== false)
+				$out[] = $data;
+		}
+		return $out;
+	}
 }
 ?>
