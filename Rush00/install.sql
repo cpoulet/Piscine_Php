@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS rush;
+USE rush;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS projects;
 DROP TABLE IF EXISTS categories;
@@ -24,7 +26,6 @@ CREATE TABLE IF NOT EXISTS projects (
     PRIMARY KEY (id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
--- image should be added
 INSERT INTO projects (name, price, categorie, description, image) VALUES
 ('42 Commandements', 0.5, 1, "Bienvenue à 42, jeune cadet ! Avant d'entamer ton cursus, il est temps de savoir ce que l on attends de toi tout au long de ta scolarité.", "Image/Commandments.jpg"),
 ('Piscine Reloaded', 8, 1, "Revoyez les bases de la piscine avec une suite d'exercices tirée des sujets de celle-ci.", "Image/Reloaded.jpeg"),

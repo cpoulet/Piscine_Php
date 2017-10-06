@@ -11,21 +11,23 @@ if(isset($_POST['submit']) or isset($_POST['create'])) {
 		$U = new User;
 		if($_POST['submit'] === "login") {
 			if ($U->login($_POST['login'], $_POST['passwd']) === True) {
-				$_SESSION['loggued'] = $_POST['login'];
+				$_SESSION['logged'] = $_POST['login'];
+				if ($U->isadmin($_POST['login']))
+					$_SESSION['admin'] = true;
 				$word = "now";
 			} else 
-				echo "Error: Wrong username or password.";
+				echo "<strong>Error: Wrong username or password</strong>";
 		} elseif($_POST['create'] === "create") {
 			if ($U->create($_POST['login'], $_POST['passwd']) === True) {
-				$_SESSION['loggued'] = $_POST['login'];
+				$_SESSION['logged'] = $_POST['login'];
 				$word = "now";
 			} else 
-				echo "Error: This login already exists.";
+				echo "<strong>Error: This login already exists</strong>";
 		}
 	}
 }
-if ($_SESSION['loggued'] !== "") {
-	echo 	"<br>You are $word connected as " . $_SESSION['loggued'] .
+if ($_SESSION['logged'] !== "") {
+	echo 	"<br>You are $word connected as " . $_SESSION['logged'] .
 			"<br><a href=\"logout.php\">Logout</a>";
 } else {
 ?>

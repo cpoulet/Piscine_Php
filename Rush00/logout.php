@@ -1,7 +1,8 @@
 <?php
 session_start();
+$_SESSION['logged'] = "";
+$_SESSION['admin'] = false;
 include('Template/header.php');
 include('Template/nav.php');
-$_SESSION['loggued'] = "";
 ?>
 <p>Successfully log out.</p>

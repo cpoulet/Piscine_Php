@@ -21,7 +21,17 @@ class User extends Model {
         mysqli_stmt_bind_param($req_pre, "s", $login);
         mysqli_stmt_execute($req_pre);
         return (bool) mysqli_stmt_fetch($req_pre);
-    }
+	}
+
+	function isadmin($login) {
+        $db =static::getDB();
+        $req_pre = mysqli_prepare($db, 'SELECT admin FROM users WHERE login = ?');
+        mysqli_stmt_bind_param($req_pre, "s", $login);
+		mysqli_stmt_execute($req_pre);
+		mysqli_stmt_bind_result($req_pre, $admin);
+        mysqli_stmt_fetch($req_pre);
+		return (bool) $admin;
+	}
 
     function login($login, $mdp) {
         $db =static::getDB();

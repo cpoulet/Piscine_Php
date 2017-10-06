@@ -4,11 +4,12 @@ $_SESSION['loggued'] = "";
 require_once 'Config.php';
 include('Template/header.php');
 include('Template/nav.php');
+error_reporting(E_ERROR);
 
-$mysqli = new mysqli(Config::DB_HOST, Config::DB_USER, Config::DB_PASS, Config::DB_NAME);
+$mysqli = new mysqli(Config::DB_HOST, Config::DB_USER, Config::DB_PASS);
 
 if (mysqli_connect_errno()) {
-    printf("Echec de la connection : %s\n", mysqli_connect_error());
+    printf("<br><strong>Echec de la connection : %s<strong>", mysqli_connect_error());
     exit();
 }
 
