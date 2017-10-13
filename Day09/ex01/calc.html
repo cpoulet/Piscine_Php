@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript</title>
+	</head>
+	<body>
+		<input type="text" id="left"></input>
+		<select id="select">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select>
+		<input type="text" id="right"></input>
+		<input type="submit" onclick="calculate()" value="Try me!"></input>
+		<script>
+			const TIME = 30000;
+
+			let left = document.getElementById("left");
+			let right = document.getElementById("right");
+			let select = document.getElementById("select");
+			
+			function check(n) {
+				if (Number.isInteger(parseFloat(n))) {
+					if (n >= 0) {
+						return true;
+					}
+				}
+				return false;
+			}
+
+			function speak(msg) {
+				console.log(msg);
+				alert(msg);
+			}
+
+			function procede() {
+				a = parseFloat(left.value);
+				b = parseFloat(right.value);
+				switch(select.value) {
+					case '+':
+						speak(a + b);
+						break;
+					case '-':
+						speak(a - b);
+						break;
+					case '*':
+						speak(a * b);
+						break;
+					case '/':
+						if (b == 0) {
+							speak("It's over 9000!");
+						} else {
+							speak(a / b);
+						}
+						break;
+					case '%':
+						if (b == 0) {
+							speak("It's over 9000!");
+						} else {
+							speak(a % b);
+						}
+						break;
+				}
+			}
+
+			function calculate() {
+				if (check(left.value) && check(right.value)) {
+					procede();
+				} else
+					alert('Error :('); {
+				}
+			}
+
+			setInterval(function() { speak("Please, use me..."); }, TIME);
+
+		</script>
+	</body>
+</html>

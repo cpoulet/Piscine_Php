@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript</title>
+	<style>
+		#balloon {
+			margin: 200px;
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			border-radius: 500px;
+		}
+	</style>
+	</head>
+	<body>
+		<div id="balloon"></div>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script>
+			const COLOR = new Array('red', 'green', 'blue');
+			const MAXSIZE = 420;
+			const MINSIZE = 200;
+
+			let size = 200;
+			let i = 0;
+
+			function update_balloon() {
+				if (size > MAXSIZE || size < MINSIZE)
+					size = 200;
+				$('#balloon').width(size);
+				$('#balloon').height(size);
+				i %= 3;
+				$('#balloon').css("backgroundColor", COLOR[i]);
+			}
+
+			$(document).ready(function() {
+
+			$('#balloon')
+				.click(function() {
+				i++;
+				size += 10;
+				update_balloon();
+			})
+				.mouseleave(function() {
+				i += 2;
+				size -= 5;
+				update_balloon();
+			});
+
+			});
+
+		</script>
+	</body>
+</html>

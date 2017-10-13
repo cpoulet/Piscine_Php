@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	</head>
+	<body>
+		<input type="text" id="left"></input>
+		<select id="select">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select>
+		<input type="text" id="right"></input>
+		<input type="submit" id="calculate" value="Try me!"></input>
+		<script>
+			const TIME = 30000;
+
+			function check(n) {
+				if (Number.isInteger(parseFloat(n))) {
+					if (n >= 0) {
+						return true;
+					}
+				}
+				return false;
+			}
+
+			function speak(msg) {
+				console.log(msg);
+				alert(msg);
+			}
+
+			function procede() {
+				a = parseFloat($('#left').val());
+				b = parseFloat($('#right').val());
+				switch($('select').val()) {
+					case '+':
+						speak(a + b);
+						break;
+					case '-':
+						speak(a - b);
+						break;
+					case '*':
+						speak(a * b);
+						break;
+					case '/':
+						if (b == 0) {
+							speak("It's over 9000!");
+						} else {
+							speak(a / b);
+						}
+						break;
+					case '%':
+						if (b == 0) {
+							speak("It's over 9000!");
+						} else {
+							speak(a % b);
+						}
+						break;
+				}
+			}
+
+			$(document).ready(function() {
+
+			$('#calculate').click(function() {
+				if (check($('#left').val()) && check($('#right').val())) {
+					procede();
+				} else
+					alert('Error :('); {
+				}
+			});
+			
+			});
+
+			setInterval(function() { speak("Please, use me..."); }, TIME);
+
+		</script>
+	</body>
+</html>

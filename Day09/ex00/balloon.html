@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Javascript</title>
+		<link href="style.css" type="text/css" rel="stylesheet"/>
+		<style>
+			.balloon {
+				margin: 200px;
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border-radius: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="balloon" id="b"></div>
+		<script>
+			const COLOR = new Array('red', 'green', 'blue');
+			const MAXSIZE = 420;
+			const MINSIZE = 200;
+
+			let balloon = document.getElementById("b");
+			let size = 200;
+			let i = 0;
+
+			function update_balloon() {
+				if (size > MAXSIZE || size < MINSIZE)
+					size = 200;
+				balloon.style.width = size.toString() + 'px';
+				balloon.style.height = size.toString() + 'px';
+				i %= 3;
+				balloon.style.backgroundColor = COLOR[i];
+			}
+
+			balloon.onclick = function() {
+				i++;
+				size += 10;
+				update_balloon();
+			}
+
+			balloon.onmouseleave = function() {
+				i += 2;
+				size -= 5;
+				update_balloon();
+			}
+
+		</script>
+	</body>
+</html>
